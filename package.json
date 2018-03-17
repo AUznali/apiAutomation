@@ -1,0 +1,24 @@
+{
+  "name": "sre_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-jasmine": "^2.4.2",
+    "jasmine": "^2.8.0",
+    "jasmine-custom-message": "^0.8.2",
+    "jasmine2-custom-message": "^0.8.4"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-json-schema": "^1.5.0",
+    "gulp": "^3.9.1",
+    "request": "^2.83.0",
+    "request-js": "^1.0.1"
+  }
+}

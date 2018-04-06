@@ -5,14 +5,13 @@ var unitID = 0;
 
 var getById = function(generalOptions, specificOptions) {
 
-
   describe('API tests for: ' + specificOptions.name, function() {
     var url = generalOptions.baseUrl + specificOptions.route;
 
 
 
     // GET all items
-    it('= = = GET ALL test for ' + specificOptions.name + ' return status code 200', function(done) {
+   it('= = = GET ALL test for ' + specificOptions.name + ' return status code 200',  function(done) {
       generalOptions.request.get({
         url: url
       }, function(error, response, body) {
@@ -22,19 +21,17 @@ var getById = function(generalOptions, specificOptions) {
         if (specificOptions.route == '/devices/') {
           var bodyJS = JSON.parse(body);
           unitID = bodyJS.devices[0].id;
-
         } else {
-          unitID = '';
+         unitID = '';
         }
-
+        console.log('Result 1 - ' + unitID);
         done();
+
       });
     });
 
 
-
-
-    // GET by ID
+    //GET by ID
     it('= = = GET by ID test for ' + specificOptions.name + ' return status code 200', function(done) {
       generalOptions.request.get({
         url: url + unitID
@@ -44,13 +41,9 @@ var getById = function(generalOptions, specificOptions) {
         done();
       });
     });
-
-
-
-
-
-
   })
 };
+
+
 
 module.exports = getById;

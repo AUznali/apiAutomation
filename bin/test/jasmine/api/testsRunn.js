@@ -22,15 +22,15 @@ var schemaValidation = require('./test/schemaValidation.js');
 //REQUESTS
 // stores(generalOptions, specificOptions.stores);
 // settings(generalOptions, specificOptions.settings);
-// getById(generalOptions, specificOptions.devices);
+getById(generalOptions, specificOptions.devices);
 // getById(generalOptions, specificOptions.categories);
 
 
 //SANITIZATION
-for(var i = 0; i < generalOptions.testParameters.length; i++){
-  var parameterForTest = generalOptions.testParameters[i];
-  sanitization(generalOptions, specificOptions.stores, parameterForTest);
-}
+// for(var i = 0; i < generalOptions.testParameters.length; i++){
+//   var parameterForTest = generalOptions.testParameters[i];
+//   sanitization(generalOptions, specificOptions.stores, parameterForTest);
+// }
 
 
 

@@ -20,11 +20,12 @@ var getById = function(generalOptions, specificOptions) {
 
         if (specificOptions.route == '/devices/') {
           var bodyJS = JSON.parse(body);
+
+          //This is first device ID
           unitID = bodyJS.devices[0].id;
         } else {
          unitID = '';
         }
-        console.log('Result 1 - ' + unitID);
         done();
 
       });
@@ -34,6 +35,7 @@ var getById = function(generalOptions, specificOptions) {
     //GET by ID
     it('= = = GET by ID test for ' + specificOptions.name + ' return status code 200', function(done) {
       generalOptions.request.get({
+        //Making GET request by ID
         url: url + unitID
       }, function(error, response, body) {
         expect(response.statusCode).toBe(200);

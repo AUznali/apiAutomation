@@ -2,19 +2,12 @@
 
 
 //Requests
-var stores = require('./test/stores.js');
-var settings = require('./test/settings.js');
-var getById = require('./test/getById.js');
+var pullToArray = require('./tools/pullToArray.js');
+var toolSpecs = require('./toolSpecs.js');
 
-var sanitization = require('./test/sanitization.js');
-
-var schemaValidation = require('./test/schemaValidation.js');
- var apiSpec = require('./specs/apiSpec.js');
-
- var generalOptions = apiSpec.generalOptions;
- var specificOptions = apiSpec.specificOptions;
-
-
+var mainOptions = toolSpecs.mainOptions;
+var certainOptions = toolSpecs.certainOptions;
+var endpoints = toolSpecs.endpoints;
 
 
 // ==== RUNNING TESTS ====
@@ -22,16 +15,23 @@ var schemaValidation = require('./test/schemaValidation.js');
 //REQUESTS
 // stores(generalOptions, specificOptions.stores);
 // settings(generalOptions, specificOptions.settings);
-getById(generalOptions, specificOptions.devices);
-// getById(generalOptions, specificOptions.categories);
 
+var res;
+res =  pullToArray(mainOptions, certainOptions.admin, endpoints.title);
+
+// function print(){
+//   console.log(res);
+// }
+// setTimeout(print, 5000);
+
+
+// getById(generalOptions, specificOptions.categories);
 
 //SANITIZATION
 // for(var i = 0; i < generalOptions.testParameters.length; i++){
 //   var parameterForTest = generalOptions.testParameters[i];
 //   sanitization(generalOptions, specificOptions.stores, parameterForTest);
 // }
-
 
 
 

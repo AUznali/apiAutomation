@@ -2,6 +2,7 @@
 var config = require('../config.js');
 var since = require('jasmine2-custom-message');
 var request = require('request');
+require('jasmine-promises');
 
 //Schemas
 var storeSchema = require('../../../../src/schema/stores.js');
@@ -9,6 +10,7 @@ var devicesSchema = require('../../../../src/schema/devices.js');
 var settingsSchema = require('../../../../src/schema/settings.js');
 var contentSchema = require('../../../../src/schema/content.js');
 var categoriesSchema = require('../../../../src/schema/categories.js');
+
 
 
 

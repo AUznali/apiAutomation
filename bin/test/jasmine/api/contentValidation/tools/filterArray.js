@@ -2,22 +2,17 @@
 
 
 var filterArray = function(arrayToFilter, criteriaToFilter, language) {
-return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
 
-  var filteredArray = arrayToFilter.filter(function(item) {
-    return criteriaToFilter.indexOf(item.provider.id) !== -1;
+    var filteredArray = arrayToFilter.filter(function(item) {
+      return criteriaToFilter.indexOf(item.provider.id) !== -1;
+    });
+
+    var filteredArrayByLanguage = filteredArray.filter(content => content.type == language);
+    // = = = = = = =
+    resolve(filteredArrayByLanguage);
   });
-
-  var filteredArrayByLanguage = filteredArray.filter(content => content.type == language);
-  // = = = = = = =
-  resolve(filteredArrayByLanguage);
-});
 };
-
-
-
-
-
 
 
 

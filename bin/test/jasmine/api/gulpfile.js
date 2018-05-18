@@ -4,12 +4,33 @@ var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');
 
 
-gulp.task('all', () => {
-  console.log('Starting all tests...');
-  gulp.src('testsRunn.js')
-      .pipe(jasmine())
+var contentValidation = require('../../../../build/gulp/tasks/contentValidation.js');
+///Users/iposter/Downloads/Training/GIT_HUB/apiAutomation/bin/test/jasmine/api/gulpfile.js
 
-});
+
+// gulp.task('all', () => {
+//   console.log('Starting all tests...');
+//   gulp.src('testsRunn.js')
+//       .pipe(jasmine())
+//
+// });
+//
+//
+// gulp.task('contentValidation', () => {
+//   console.log('Starting contentValidation tests...');
+//
+//   contentValidation();
+//   // gulp.src('testsRunn.js')
+//   //     .pipe(jasmine())
+//
+// });
+
+
+
+
+
+
+
 
 // gulp.task('schema', () => {
 //   console.log('Checking status...');
@@ -25,4 +46,4 @@ gulp.task('all', () => {
 
 
 
-gulp.task('default', ['all']);
+gulp.task('default', ['contentValidation']);

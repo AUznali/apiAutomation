@@ -90,7 +90,10 @@ var contentValidation = function(language, postJSON) {
 
 
 
+var arrayLength;
+
       it('Number of content files should be same', function() {
+        arrayLength = this.sameAdminContent.length;
         since('NUMBER OF THE CONTENT FILES ARE NOT THE SAME FOR ADMIN: ' + this.lengthFilteredAdminContentArr + ' AND SERVER: ' + this.lengthServerContentJson).
         expect(this.lengthFilteredAdminContentArr).toBe(this.lengthServerContentJson);
       });
@@ -104,7 +107,7 @@ var contentValidation = function(language, postJSON) {
 
 
       var count = 0;
-
+        console.log("-------------+++++++++++++++++++++ " + arrayLength);
       //Comparing arrays with same content
       for (var i = 0; i < this.sameAdminContent.length; i++) {
 
@@ -264,7 +267,7 @@ var contentValidation = function(language, postJSON) {
 
 
 
-      resolve('Done!');
+
 
 
 
@@ -272,7 +275,7 @@ var contentValidation = function(language, postJSON) {
 
     }); //describe
 
-
+resolve('Done!');
   });
 }
 module.exports = contentValidation;

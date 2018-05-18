@@ -1,14 +1,15 @@
 'use strict';
 
 
-var compareSameContent = function(filteredAdminContentArr, serverContentJson, adminId){
-  console.log("= = = = = = = = = = = = ");
+var compareSameContent = function(sameAdminContent, sameServerContent, adminId){
+    return new Promise((resolve, reject) => {
+
 describe('Comparing Admin/Server content JSON files', function() {
 
 
   //IMAGES
-  var imagesAdmin = filteredAdminContentArr.images;
-  var imagesServer = serverContentJson.images;
+  var imagesAdmin = sameAdminContent.images;
+  var imagesServer = sameServerContent.images;
 
 
   // Here I do compare details between same contnet: ADMIN /SERVER;
@@ -16,56 +17,56 @@ describe('Comparing Admin/Server content JSON files', function() {
   it('TITLE Should match', function() {
     //CHECKING TITLE
     since('TITLES ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.title + ' / SERVER: ' + serverContentJson.title)
-      .expect(filteredAdminContentArr.title).toBe(serverContentJson.title);
+        sameAdminContent.title + ' / SERVER: ' + sameServerContent.title)
+      .expect(sameAdminContent.title).toBe(sameServerContent.title);
   });
 
 
   it('OUTPUT RANGES Should match', function() {
     //CHECKING OUTPUT RANGES
     since('OUTPUT RANGES ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.outputRange + ' / SERVER: ' + serverContentJson.details.outputRange)
-      .expect(filteredAdminContentArr.outputRange).toBe(serverContentJson.details.outputRange);
+        sameAdminContent.outputRange + ' / SERVER: ' + sameServerContent.details.outputRange)
+      .expect(sameAdminContent.outputRange).toBe(sameServerContent.details.outputRange);
   });
 
 
   it('ACTION ID Should match', function() {
     //CHECKING ACTION ID
     since('OUTPUT RANGES ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.actionId + ' / SERVER: ' + serverContentJson.details.actionId)
-      .expect(filteredAdminContentArr.actionId).toBe(serverContentJson.details.actionId);
+        sameAdminContent.actionId + ' / SERVER: ' + sameServerContent.details.actionId)
+      .expect(sameAdminContent.actionId).toBe(sameServerContent.details.actionId);
   });
 
 
   it('RESOLUTION Should match', function() {
     //CHECKING RESOLUTION
     since('RESOLUTIONS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.resolution + ' / SERVER: ' + serverContentJson.resolution)
-      .expect(filteredAdminContentArr.resolution).toBe(serverContentJson.resolution);
+        sameAdminContent.resolution + ' / SERVER: ' + sameServerContent.resolution)
+      .expect(sameAdminContent.resolution).toBe(sameServerContent.resolution);
   });
 
 
   it('SUPPORTED RESOLUTIONS Should match', function() {
     //CHECKING SUPPORTED RESOLUTIONS
     since('SUPPORTED RESOLUTIONS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.supportedResolutions + ' / SERVER: ' + serverContentJson.details.supportedResolutions)
-      .expect(filteredAdminContentArr.supportedResolutions).toBe(serverContentJson.details.supportedResolutions);
+        sameAdminContent.supportedResolutions + ' / SERVER: ' + sameServerContent.details.supportedResolutions)
+      .expect(sameAdminContent.supportedResolutions).toBe(sameServerContent.details.supportedResolutions);
   });
 
 
   it('OUTPUT RESOLUTIONS Should match', function() {
     //CHECKING OUTPUT RESOLUTIONS
     since('OUTPUT RESOLUTIONS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.outputResolution + ' / SERVER: ' + serverContentJson.details.outputResolution)
-      .expect(filteredAdminContentArr.outputResolution).toBe(serverContentJson.details.outputResolution);
+        sameAdminContent.outputResolution + ' / SERVER: ' + sameServerContent.details.outputResolution)
+      .expect(sameAdminContent.outputResolution).toBe(sameServerContent.details.outputResolution);
   });
 
 
   it('SUPPORTED MODELS Should match', function() {
     //CHECKING SUPPORTED MODELS
     since('SUPPORTED MODELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.supportedModels + ' / SERVER: ' + serverContentJson.details.supportedModels)
-      .expect(filteredAdminContentArr.supportedModels).toBe(serverContentJson.details.supportedModels);
+        sameAdminContent.supportedModels + ' / SERVER: ' + sameServerContent.details.supportedModels)
+      .expect(sameAdminContent.supportedModels).toBe(sameServerContent.details.supportedModels);
   });
 
 
@@ -73,8 +74,8 @@ describe('Comparing Admin/Server content JSON files', function() {
   //Do we need check this?
   // //CHECKING SUPPORTED AUDIO MODELS
   // since('SUPPORTED AUDIO MODELS ARE NOT THE SAME: ADMIN: ' +
-  //     filteredAdminContentArr.supportedAudioModels + ' / SERVER: ' + serverContentJson.details.supportedAudioModels)
-  //   .expect(filteredAdminContentArr.supportedAudioModels).toBe(serverContentJson.details.supportedAudioModels);
+  //     sameAdminContent.supportedAudioModels + ' / SERVER: ' + sameServerContent.details.supportedAudioModels)
+  //   .expect(sameAdminContent.supportedAudioModels).toBe(sameServerContent.details.supportedAudioModels);
   // });
 
 
@@ -82,39 +83,39 @@ describe('Comparing Admin/Server content JSON files', function() {
   it('UNSUPPORTED MODELS Should match', function() {
     //CHECKING UNSUPPORTED MODELS
     since('UNSUPPORTED MODELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.unsupportedModels + ' / SERVER: ' + serverContentJson.details.unsupportedModels)
-      .expect(filteredAdminContentArr.unsupportedModels).toBe(serverContentJson.details.unsupportedModels);
+        sameAdminContent.unsupportedModels + ' / SERVER: ' + sameServerContent.details.unsupportedModels)
+      .expect(sameAdminContent.unsupportedModels).toBe(sameServerContent.details.unsupportedModels);
   });
 
 
   it('CHANNEL Should match', function() {
     //CHECKING CHANNEL
     since('CHANNELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.channel + ' / SERVER: ' + serverContentJson.details.channel)
-      .expect(filteredAdminContentArr.channel).toBe(serverContentJson.details.channel);
+        sameAdminContent.channel + ' / SERVER: ' + sameServerContent.details.channel)
+      .expect(sameAdminContent.channel).toBe(sameServerContent.details.channel);
   });
 
 
   it('AUDIO LEVEL Should match', function() {
     //CHECKING AUDIO LEVEL
     since('AUDIO LEVELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.audioLevel + ' / SERVER: ' + serverContentJson.details.audioLevel)
-      .expect(filteredAdminContentArr.audioLevel).toBe(serverContentJson.details.audioLevel);
+        sameAdminContent.audioLevel + ' / SERVER: ' + sameServerContent.details.audioLevel)
+      .expect(sameAdminContent.audioLevel).toBe(sameServerContent.details.audioLevel);
   });
 
 
   it('LANGUAGE Should match', function() {
     //CHECKING LANGUAGE
     since('AUDIO LEVELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.type + ' / SERVER: ' + serverContentJson.details.type)
-      .expect(filteredAdminContentArr.type).toBe(serverContentJson.details.type);
+        sameAdminContent.type + ' / SERVER: ' + sameServerContent.details.type)
+      .expect(sameAdminContent.type).toBe(sameServerContent.details.type);
   });
 
 
   it('FILENAMES Should match', function() {
     //Changing to format ID + Filename to compare with Filenames from Server
-    var filenameAdmin = adminId + "/" + filteredAdminContentArr.filename;
-    var filenameServer = serverContentJson.filename;
+    var filenameAdmin = adminId + "/" + sameAdminContent.filename;
+    var filenameServer = sameServerContent.filename;
 
     //CHECKING FILENAMES
     since('FILE NAMES ARE NOT THE SAME: ADMIN: ' + filenameAdmin + ' / SERVER: ' + filenameServer)
@@ -125,8 +126,8 @@ describe('Comparing Admin/Server content JSON files', function() {
   it('DETALABLE Should match', function() {
     //CHECKING DETALABLE
     since('AUDIO LEVELS ARE NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.deletable + ' / SERVER: ' + serverContentJson.details.deletable)
-      .expect(filteredAdminContentArr.deletable).toBe(serverContentJson.details.deletable);
+        sameAdminContent.deletable + ' / SERVER: ' + sameServerContent.details.deletable)
+      .expect(sameAdminContent.deletable).toBe(sameServerContent.details.deletable);
   });
 
 
@@ -135,11 +136,13 @@ describe('Comparing Admin/Server content JSON files', function() {
   it('NUMBER OF IMAGES Should match', function() {
     //CHECKING NUMBER OF IMAGES
     since('NUMBER OF IMAGES IS NOT THE SAME: ADMIN: ' +
-        filteredAdminContentArr.images.length +
-        ' / SERVER: ' + serverContentJson.images.length + " FILE: " + " ID/ " +
-        filteredAdminContentArr.fileId + " / TITLE: " + filteredAdminContentArr.title)
-      .expect(filteredAdminContentArr.images.length).toBe(serverContentJson.images.length);
+        sameAdminContent.images.length +
+        ' / SERVER: ' + sameServerContent.images.length + " FILE: " + " ID/ " +
+        sameAdminContent.fileId + " / TITLE: " + sameAdminContent.title)
+      .expect(sameAdminContent.images.length).toBe(sameServerContent.images.length);
   });
+});
+resolve('Done!');
 });
 };
 

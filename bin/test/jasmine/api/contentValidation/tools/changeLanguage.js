@@ -2,9 +2,9 @@
 
 
 var sendPost = function(mainOptions, certainOptions, postJSON) {
-  return new Promise((resolve, reject) => {
-    var url = certainOptions.serverIp + mainOptions.endpoints.settings.path;
+  return new Promise(resolve => {
 
+    var url = certainOptions.serverIp + mainOptions.endpoints.settings.path;
 
     //Making POST to change system current language
     mainOptions.request.post({
@@ -14,10 +14,29 @@ var sendPost = function(mainOptions, certainOptions, postJSON) {
       },
       json: true,
       body: postJSON
-    }, function(error, response, body) {
-      expect(response.statusCode).toBe(200);
-      resolve(body);
+    }, function(error, response, newbody) {
+      //  expect(response.statusCode).toBe(200);
+      //return body;
+       verifyLang();
     });
+
+function verifyLang(){
+  //Making GET to check that system current language was changed correctly
+  mainOptions.request.get({
+    url: url
+  }, function(error, response, newBody) {
+    var bodyJS = JSON.parse(newBody);
+    //expect(postJSON.systemCurrentLanguage).toBe(bodyJS);
+    console.log("++++++++++ POST +++++++++++++++" + postJSON.systemCurrentLanguage);
+    console.log("^^^^^^^^^^^^ SERVER ^^^^^^^^^^^^" + bodyJS.systemCurrentLanguage);
+  });
+}
+
+
+
+
+    resolve(console.log("DONE ++++++++++++"));
+
   });
 };
 

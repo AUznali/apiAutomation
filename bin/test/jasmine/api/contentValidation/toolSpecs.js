@@ -11,9 +11,9 @@ var contentSchema = require('../../../../src/schema/content.js');
 var categoriesSchema = require('../../../../src/schema/categories.js');
 
 //SERVERS IPs
-var blueServerIp = 'http://10.250.75.140/'; // Main server
-var yellowServerIp = 'http://10.250.75.140/'; // Second server
-var greenServerIp = 'http://10.250.75.140/'; // 3rd Server
+var blueServerIp = 'http://10.250.75.118/'; // Main server
+var yellowServerIp = 'http://10.250.75.118/'; // Second server
+var greenServerIp = 'http://10.250.75.118/'; // 3rd Server
 
 
 
@@ -36,7 +36,8 @@ var certainOptions = {
 
   //ADMIN
   admin: {
-    jsonUrl: 'https://svpa-sre-content-prod.s3.amazonaws.com/2018.04.22-us_sremirror.json',
+    jsonUrl: 'https://svpa-sre-content-prod.s3.amazonaws.com/2018.05.11-ca_sre.json',
+    //'https://svpa-sre-content-prod.s3.amazonaws.com/2018.04.22-us_sremirror.json',
     // https://svpa-sre-content-prod.s3.amazonaws.com/2018.01.18-us_sremirror.json
     // https://svpa-sre-content-prod.s3.amazonaws.com/2018.04.22-us_sremirror.json'
 

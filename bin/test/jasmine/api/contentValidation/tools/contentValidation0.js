@@ -12,16 +12,19 @@ var certainOptions = toolSpecs.certainOptions;
 
 
 
-var contentValidation = function(language, postJSON) {
+var contentValidation = function(postJSON) {
   return new Promise((resolve, reject) => {
 
 
-    console.log(postJSON);
+
+
+    describe('Comparing Admin/Server content JSON files', function() {
+
 
     beforeAll(async function() {
 
       await changeLanguage(mainOptions, certainOptions.blueServer, postJSON)
-
+console.log("++++++++++++++++++++++++++++++++++++++++++");
       //Gettings Json Body from the Admin
       this.adminJsonBody = await pullBody(mainOptions, certainOptions.admin);
       //Gettings Json Body from the Admin Server
@@ -68,6 +71,7 @@ var contentValidation = function(language, postJSON) {
       for (var i = 0; i < this.lengthFilteredAdminContentArr; i++) {
         var fileIdAdmin = this.filteredAdminContentArr[i].fileId;
 
+
         for (var k = 0; k < this.lengthServerContentJson; k++) {
           var fileIdServer = this.serverContentJson[k].details.fileId;
 
@@ -86,14 +90,18 @@ var contentValidation = function(language, postJSON) {
 
 
 
-    describe('Comparing Admin/Server content JSON files', function() {
+
 
 
 
 var arrayLength;
 
       it('Number of content files should be same', function() {
+
+
         arrayLength = this.sameAdminContent.length;
+          console.log("-------------++++++++++++/////////////+++++++++ " + arrayLength);
+
         since('NUMBER OF THE CONTENT FILES ARE NOT THE SAME FOR ADMIN: ' + this.lengthFilteredAdminContentArr + ' AND SERVER: ' + this.lengthServerContentJson).
         expect(this.lengthFilteredAdminContentArr).toBe(this.lengthServerContentJson);
       });
@@ -107,11 +115,9 @@ var arrayLength;
 
 
       var count = 0;
-        console.log("-------------+++++++++++++++++++++ " + arrayLength);
+
       //Comparing arrays with same content
       for (var i = 0; i < this.sameAdminContent.length; i++) {
-
-
 
 
 
@@ -267,7 +273,7 @@ var arrayLength;
 
 
 
-
+      resolve('Done!');
 
 
 
@@ -275,7 +281,7 @@ var arrayLength;
 
     }); //describe
 
-resolve('Done!');
+
   });
 }
 module.exports = contentValidation;

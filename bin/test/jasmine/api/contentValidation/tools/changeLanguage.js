@@ -1,5 +1,5 @@
 'use strict';
-
+var expect = require('expect.js');
 
 var sendPost = function(mainOptions, certainOptions, postJSON) {
   return new Promise(resolve => {
@@ -15,7 +15,7 @@ var sendPost = function(mainOptions, certainOptions, postJSON) {
       json: true,
       body: postJSON
     }, function(error, response, newbody) {
-      //  expect(response.statusCode).toBe(200);
+      expect(response.statusCode).to.be(200);
       //return body;
        verifyLang();
     });
@@ -26,17 +26,12 @@ function verifyLang(){
     url: url
   }, function(error, response, newBody) {
     var bodyJS = JSON.parse(newBody);
-    //expect(postJSON.systemCurrentLanguage).toBe(bodyJS);
+    expect(postJSON.systemCurrentLanguage).to.be(bodyJS.systemCurrentLanguage);
     console.log("++++++++++ POST +++++++++++++++" + postJSON.systemCurrentLanguage);
     console.log("^^^^^^^^^^^^ SERVER ^^^^^^^^^^^^" + bodyJS.systemCurrentLanguage);
+    resolve(console.log("DONE ++++++++++++"));
   });
 }
-
-
-
-
-    resolve(console.log("DONE ++++++++++++"));
-
   });
 };
 

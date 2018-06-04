@@ -5,7 +5,7 @@
   var path = __dirname + '/build/gulp/task/' + task;
 
   var paths = [
-  //  __dirname + '/build/gulp/scheme/' + task,
+    __dirname + '/build/gulp/scheme/' + task,
     __dirname + '/build/gulp/task/' + task,
     __dirname + '/build/gulp/gulp'
   ];

@@ -6,13 +6,13 @@ const jasmine = require('gulp-jasmine');
 
 var since = require('jasmine2-custom-message');
 
-var pullBody = require('./contentValidation/tools/pullBody.js');
-var filterArray = require('./contentValidation/tools/filterArray.js');
-var toolSpecs = require('./contentValidation/toolSpecs.js');
-var changeLanguage = require('./contentValidation/tools/changeLanguage.js');
+var pullBody = require('../../../bin/test/jasmine/api/contentValidation/tools/pullBody.js');
+var filterArray = require('../../../bin/test/jasmine/api/contentValidation/tools/filterArray.js');
+var toolSpecs = require('../../../bin/test/jasmine/api/contentValidation/toolSpecs.js');
+var changeLanguage = require('../../../bin/test/jasmine/api/contentValidation/tools/changeLanguage.js');
 //var compareSameContent = require('../../../bin/test/jasmine/api/contentValidation/tools/compareSameContent.js');
-var contentArrays = require('./contentValidation/tools/contentArrays.js');
-var checkNumberOfFiles = require('./contentValidation/tools/checkNumberOfFiles.js');
+var contentArrays = require('../../../bin/test/jasmine/api/contentValidation/tools/contentArrays.js');
+var checkNumberOfFiles = require('../../../bin/test/jasmine/api/contentValidation/tools/checkNumberOfFiles.js');
 
 
 
@@ -50,7 +50,6 @@ var imagesServer;
 
 gulp.task('main', function() {
   validatingContent();
-  console.log("sdsdfsd");
 });
 
 
@@ -112,13 +111,7 @@ async function validatingContent() {
     adminId = adminJsonBody.id;
 
 
-    //Saving adminId to the files.
-    fs.writeFile("./Temp/adminId.js", adminId, function(err) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("The file was saved (adminId)!");
-    });
+    console.log("-----------------------------------------" + adminId);
 
     //Taking ADMIN categories
     adminCategories = adminJsonBody.device_categories;
@@ -167,7 +160,7 @@ async function validatingContent() {
       if (err) {
         return console.log(err);
       }
-      console.log("The file was saved (stringSameAdminContent)!");
+      console.log("Thw file was saved (stringSameAdminContent)!");
     });
 
     fs.writeFile("./Temp/stringSameServerContent.js", stringSameServerContent, function(err) {
@@ -176,8 +169,8 @@ async function validatingContent() {
       }
       console.log("The file was saved (stringSameServerContent)!");
     });
-    //checkNumberOfFiles();
-    // compareSameContent();
+      //checkNumberOfFiles();
+      // compareSameContent();
 
   }
 };
@@ -189,93 +182,10 @@ gulp.task('size', function() {
 
 
 
-
-
-
-
-
-
-gulp.task('compare', function() {
-  var stringSameServerContent = JSON.parse(fs.readFileSync('./Temp/stringSameServerContent.js').toString());
-  var stringSameAdminContent = JSON.parse(fs.readFileSync('./Temp/stringSameAdminContent.js').toString());
-
-  var arrayLength = stringSameServerContent.length;
-
-  // function testFucn() {
-  //   return new Promise((resolve, reject) => {
-
-
-      //Working with two arrays (same content).
-      for (var j = 0; j < arrayLength; j++) {
-
-
-
-        var tempAdminConetnString = JSON.stringify(stringSameAdminContent[j]);
-        var tempAServerConetnString = JSON.stringify(stringSameServerContent[j]);
-
-
-
-        gulp.task('saveToFiles', function() {
-
-
-          gulp.task('saveAdminToFiles', function() {
-            fs.writeFile("./Temp/sameAdminContent.js", tempAdminConetnString, function(err) {
-              if (err) {
-                return console.log(err);
-              }
-              console.log("The file was saved (sameAdminContent)!");
-            });
-          });
-
-
-          gulp.task('saveServerToFiles', ['saveAdminToFiles'], function() {
-            fs.writeFile("./Temp/sameServerContent.js", tempAServerConetnString, function(err) {
-              if (err) {
-                return console.log(err);
-              }
-              console.log("The file was saved (sameServerContent)!");
-            });
-          });
-
-
-          gulp.start('saveServerToFiles');
-
-
-          console.log("------------SAVED--------------------");
-
-        });
-
-
-        gulp.task('jasmineCompare', ['saveToFiles'], function() {
-          gulp.src('./contentValidation/tools/compareSameContent.js')
-            .pipe(jasmine())
-            .on('jasmineDone', () => console.log("YES!!!"));
-          console.log("------------COMPARING--------------------");
-        });
-
-
-        gulp.task('deleteFiles', ['jasmineCompare'], function() {
-          fs.unlinkSync('./Temp/sameAdminContent.js');
-          fs.unlinkSync('./Temp/sameServerContent.js');
-          console.log("------------DELETED--------------------");
-        });
-
-        gulp.start('deleteFiles');
-
-
-
-      }
-
-      resolve("Done!");
-  //   });
-  // };
-
-  (async function() {
-    await testFucn();
-  })();
-
-});
-
+gulp.task('compare', () =>
+    gulp.src('./contentValidation/tools/compareSameContent.js')
+        .pipe(jasmine())
+);
 
 
 

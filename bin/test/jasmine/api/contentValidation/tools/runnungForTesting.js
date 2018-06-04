@@ -5,7 +5,7 @@ var mainOptions = toolSpecs.mainOptions;
 var certainOptions = toolSpecs.certainOptions;
 
 //Requests
-var contentValidation = require('./contentValidation1.js');
+var contentValidation = require('./contentValidation0.js');
 var postJSON = {'systemCurrentLanguage':'en-us'};
 
 contentValidation(postJSON);

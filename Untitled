@@ -1,0 +1,83 @@
+{
+  "content": [
+    {
+      "id": "7bb0acb8-28a5-42f2-b5a0-3f74a73159c8",
+      "title": "TKY 4KHDR 165 LIVINGSTONE 2018",
+      "filename": "04102014-1315/TKY_4KHDR_165_LIVINGSTONE_2018.04.22_EXP_2019.03.31.ts",
+      "resolution": "4k",
+      "details": {
+        "description": "TKY 4KHDR 165 LIVINGSTONE 2018",
+        "genres": [
+          "standard"
+        ],
+        "duration": "107",
+        "release": "Jan 26 2014 11:01AM",
+        "tags": "56b0359d-9b25-4a76-8c00-5f3423da1e52",
+        "rating": "G",
+        "expires": "9999999999",
+        "added": "1522795543422",
+        "frameRate": "60",
+        "type": "en-us",
+        "deletable": "true",
+        "outputRange": "sdr",
+        "outputResolution": "4k",
+        "enabledDate": "0",
+        "channel": "",
+        "actionId": "loop",
+        "resolution": "4k",
+        "supportedResolutions": "4k",
+        "supportedModels": "",
+        "unsupportedModels": "",
+        "supportedAudioModels": null,
+        "audioLevel": "0",
+        "fileId": "5abaca989a56df001f769789enus",
+        "metadata": null,
+        "bitdepth": "b8",
+        "colorspace": "cAuto",
+        "artist": "",
+        "album": ""
+      },
+      "status": {
+        "state": "playable",
+        "download": {
+          "size": "1060971608",
+          "bytes": 0,
+          "position": -1
+        },
+        "playback": {
+          "viewCount": "0",
+          "position": "0"
+        }
+      },
+      "categories": [
+        {
+          "id": "4ba822b9-c552-4ecb-bc21-9c18cdc4ebcf",
+          "name": "2K LOOP",
+          "language": "en-us",
+          "translation": "2K LOOP",
+          "state": "playable"
+        }
+      ],
+      "images": [
+        {
+          "id": "1c1be7fb-804d-4fbd-8bd8-5b4cfa465160",
+          "uri": "04102014-1315/Livingstone50p_HDR_thumbnail.png",
+          "width": "232",
+          "height": "131",
+          "row": "0",
+          "column": "0",
+          "action": null
+        },
+        {
+          "id": "d536fb0a-6775-46e0-ad36-457aafcadeb5",
+          "uri": "04102014-1315/Livingstone50p_HDR_tv.png",
+          "width": "294",
+          "height": "160",
+          "row": "0",
+          "column": "0",
+          "action": null
+        }
+      ]
+    }
+
+        }

@@ -191,7 +191,7 @@ gulp.task('size', function() {
 
 
 
-
+//===========================================
 
 
 
@@ -205,76 +205,106 @@ gulp.task('compare', function() {
   //   return new Promise((resolve, reject) => {
 
 
-      //Working with two arrays (same content).
-      for (var j = 0; j < arrayLength; j++) {
+
+
+  function saveAdminToFiles(tempAdminConetnString) {
+    return new Promise((resolve, reject) => {
+      fs.writeFile("./Temp/sameAdminContent.js", tempAdminConetnString, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        resolve("------------SAVED sameAdminContent ---------------");
+      });
+    });
+  };
 
 
 
-        var tempAdminConetnString = JSON.stringify(stringSameAdminContent[j]);
-        var tempAServerConetnString = JSON.stringify(stringSameServerContent[j]);
+  function saveServerToFiles(tempServerConetnString) {
+    return new Promise((resolve, reject) => {
+      fs.writeFile("./Temp/sameServerContent.js", tempServerConetnString, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        resolve("------------SAVED sameServerContent ---------------");
+      });
+    });
+  };
 
 
 
-        gulp.task('saveToFiles', function() {
-          
 
-
-          gulp.task('saveAdminToFiles', function() {
-            fs.writeFile("./Temp/sameAdminContent.js", tempAdminConetnString, function(err) {
-              if (err) {
-                return console.log(err);
-              }
-              console.log("The file was saved (sameAdminContent)!");
-            });
-          });
-
-
-          gulp.task('saveServerToFiles', ['saveAdminToFiles'], function() {
-            fs.writeFile("./Temp/sameServerContent.js", tempAServerConetnString, function(err) {
-              if (err) {
-                return console.log(err);
-              }
-              console.log("The file was saved (sameServerContent)!");
-            });
-          });
-
-
-          gulp.start('saveServerToFiles');
-
-
-          console.log("------------SAVED--------------------");
-
-        });
-
-
-        gulp.task('jasmineCompare', ['saveToFiles'], function() {
-          gulp.src('./contentValidation/tools/compareSameContent.js')
-            .pipe(jasmine())
-            .on('jasmineDone', () => console.log("YES!!!"));
-          console.log("------------COMPARING--------------------");
-        });
-
-
-        gulp.task('deleteFiles', ['jasmineCompare'], function() {
-          fs.unlinkSync('./Temp/sameAdminContent.js');
-          fs.unlinkSync('./Temp/sameServerContent.js');
-          console.log("------------DELETED--------------------");
-        });
-
-        gulp.start('deleteFiles');
+  function jasmineCompare() {
+    return new Promise((resolve, reject) => {
+      gulp.src('./contentValidation/tools/compareSameContent.js')
+        .pipe(jasmine())
+        .on('jasmineDone', () => console.log("YES!!!"));
+      resolve("------------COMPARING--------------------");
+    });
+  };
 
 
 
-      }
 
-      resolve("Done!");
-  //   });
-  // };
+  function deleteFiles() {
+    return new Promise((resolve, reject) => {
+      fs.unlinkSync('./Temp/sameAdminContent.js');
+      fs.unlinkSync('./Temp/sameServerContent.js');
+      resolve("------------DELETED--------------------");
+    });
+  };
 
-  (async function() {
-    await testFucn();
-  })();
 
+
+  //Working with two arrays (same content).
+  for (var j = 0; j < arrayLength; j++) {
+
+(async function(){
+
+  var tempAdminConetnString = JSON.stringify(stringSameAdminContent[j]);
+  var tempServerConetnString = JSON.stringify(stringSameServerContent[j]);
+
+
+    try {
+      await saveAdminToFiles(tempAdminConetnString);
+    } catch (err) {
+      console.log('ERROR: ' + err);
+    }
+
+
+
+
+
+    try {
+      await saveServerToFiles(tempServerConetnString);
+    } catch (err) {
+      console.log('ERROR: ' + err);
+    }
+
+
+
+
+    try {
+      await jasmineCompare();
+    } catch (err) {
+      console.log('ERROR: ' + err);
+    }
+
+
+
+
+
+    try {
+      await deleteFiles();
+    } catch (err) {
+      console.log('ERROR: ' + err);
+    }
+
+
+
+})();
+
+  }
 });
 
 

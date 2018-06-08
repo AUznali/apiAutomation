@@ -27,9 +27,8 @@ function verifyLang(){
   }, function(error, response, newBody) {
     var bodyJS = JSON.parse(newBody);
     expect(postJSON.systemCurrentLanguage).to.be(bodyJS.systemCurrentLanguage);
-    console.log("++++++++++ POST +++++++++++++++" + postJSON.systemCurrentLanguage);
-    console.log("^^^^^^^^^^^^ SERVER ^^^^^^^^^^^^" + bodyJS.systemCurrentLanguage);
-    resolve(console.log("DONE ++++++++++++"));
+    console.log("SERVER LANGUAGE WAS CHANGED TO: " + bodyJS.systemCurrentLanguage);
+    resolve("Done!");
   });
 }
   });

@@ -90,10 +90,6 @@ console.log("++++++++++++++++++++++++++++++++++++++++++");
 
 
 
-
-
-
-
 var arrayLength;
 
       it('Number of content files should be same', function() {
@@ -105,7 +101,6 @@ var arrayLength;
         since('NUMBER OF THE CONTENT FILES ARE NOT THE SAME FOR ADMIN: ' + this.lengthFilteredAdminContentArr + ' AND SERVER: ' + this.lengthServerContentJson).
         expect(this.lengthFilteredAdminContentArr).toBe(this.lengthServerContentJson);
       });
-
 
 
 

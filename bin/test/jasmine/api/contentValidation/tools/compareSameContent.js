@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 var fs = require('fs');
 var since = require('jasmine2-custom-message');
 
@@ -28,25 +28,30 @@ describe('Comparing Admin/Server content JSON files', function() {
 
 
 
-    it('TEST', function() {
-console.log("running ");
+    it('TEST', function(done) {
+console.log("++++++++++++++++++TEST1++++++++++++++++++++++++ ");
+done();
     });
 
 
-    it('TEST2', function() {
-console.log("running ");
+    it('TEST2', function(done) {
+console.log("++++++++++++++++++TEST2++++++++++++++++++++++++ ");
+done();
     });
 
 
 
     // Here I do compare details between same contnet: ADMIN /SERVER;
 
-    // it('TITLE Should match', function() {
-    //   //CHECKING TITLE
-    //   since('TITLES ARE NOT THE SAME: ADMIN: ' +
-    //       this.sameAdminContent.title + ' / SERVER: ' + this.sameServerContent.title)
-    //     .expect(this.sameAdminContent.title).toBe(this.sameServerContent.title);
-    // });
+    it('TITLE Should match', function(done) {
+      //CHECKING TITLE
+      // since('TITLES ARE NOT THE SAME: ADMIN: ' +
+      //     this.sameAdminContent.title + ' / SERVER: ' + this.sameServerContent.title)
+      //   .
+        expect(this.sameAdminContent.title).toBe(this.sameServerContent.title);
+        console.log("=========================" + this.sameAdminContent.title);
+        done();
+    });
     //
     //
     // it('OUTPUT RANGES Should match', function() {

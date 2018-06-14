@@ -1,5 +1,5 @@
 'use strict';
-
+var expect = require('expect.js');
 
 
 //Getting body from get API response
@@ -9,11 +9,11 @@ var pullBody = function(mainOptions, certainOptions) {
     mainOptions.request.get({
       url: certainOptions.jsonUrl
     }, function(error, response, body) {
+      expect(response.statusCode).to.be(200);
 
 
       //PARSING BODY
       var bodyJS = JSON.parse(body);
-      //expect(bodyJS).not.toBeFalsy();
       resolve(bodyJS);
     });
   });

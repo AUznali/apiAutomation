@@ -16,7 +16,7 @@ var contentSchema = {
     },
     filename: {
       type: 'string',
-      pattern: 'ts$' //.ts files format validation
+      pattern: 'ts$|mp4$' //.ts or .mp4 files format validation
     },
     resolution: {
       type: 'string'

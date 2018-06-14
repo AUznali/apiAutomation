@@ -1,11 +1,15 @@
 'use strict';
 var toolSpecs = require('./toolSpecs.js');
 var changeLanguage = require('./tools/changeLanguage.js');
+var getDevices = require('./tools/getDevices.js');
 var mainOptions = toolSpecs.mainOptions;
 var certainOptions = toolSpecs.certainOptions;
 
 //Requests
 var contentValidation = require('./tools/contentValidation.js');
+
+
+getDevices(mainOptions, certainOptions.blueServer);
 
 
 

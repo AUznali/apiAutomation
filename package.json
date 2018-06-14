@@ -11,8 +11,6 @@
   "devDependencies": {
     "gulp-jasmine": "^2.4.2",
     "jasmine": "^2.8.0",
-    "jasmine-custom-message": "^0.8.2",
-    "jasmine-promises": "^0.4.1",
     "jasmine2-custom-message": "^0.8.4"
   },
   "dependencies": {
@@ -20,7 +18,7 @@
     "chai-json-schema": "^1.5.0",
     "expect.js": "^0.3.1",
     "gulp": "^3.9.1",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "request-js": "^1.0.1"
   }
 }

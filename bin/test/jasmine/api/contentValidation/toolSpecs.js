@@ -20,13 +20,29 @@ var greenServerIp = 'http://10.250.75.118/'; // 3rd Server
 var mainOptions = {
   request: request,
   languages: ['en-us', 'es-mx', 'fr-ca', 'pt-br'],
+
   endpoints: {
+
+
     settings: {
-      path: 'settings/',
+      path: 'v1/settings/',
       localEndpoints: {
         systemCurrentLanguage: 'systemCurrentLanguage'
       }
+    },
+
+
+    devices: {
+      path: 'v1/devices/',
+      localEndpoints: {
+        id: 'id',
+        ip: 'ip',
+        name: 'name',
+        status: 'status'
+      }
     }
+
+
   }
 };
 
@@ -57,6 +73,9 @@ var certainOptions = {
     },
     settingsJson: {
       jsonUrl: blueServerIp + 'v1/settings/'
+    },
+    devices: {
+      jsonUrl: blueServerIp + 'v1/devices/'
     }
   },
 

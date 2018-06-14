@@ -20,9 +20,9 @@ var schemaValidation = require('./test/schemaValidation.js');
 // ==== RUNNING TESTS ====
 
 //REQUESTS
-// stores(generalOptions, specificOptions.stores);
-// settings(generalOptions, specificOptions.settings);
-getById(generalOptions, specificOptions.devices);
+//stores(generalOptions, specificOptions.stores);
+ settings(generalOptions, specificOptions.settings);
+// getById(generalOptions, specificOptions.devices);
 // getById(generalOptions, specificOptions.categories);
 
 

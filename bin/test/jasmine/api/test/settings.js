@@ -19,30 +19,50 @@ var getPost = function(generalOptions, specificOptions) {
 
 
 
+
+    // Validation Tests - Check that POST with missing properties returns 400
+    it('Validation: POST request returns status code 400 for missing properties', function(done) {
+      generalOptions.request.post({
+        url: url,
+        headers: {
+          'content-type': 'application/json'
+        },
+        json: true
+      }, function(error, response, body) {
+        expect(response.statusCode).toBe(400);
+        //expect(body.message).toEqual('Post invalid.'); // Text message should be updated once will be implemented by Shervin
+        done();
+      });
+    });
+
+
+
+
     var post = function(postJSON) {
 
-        // POST to update settings
-        it('Making POST request, it should return status code 200', function(done) {
+      // POST to update settings
+      it('Making POST request, it should return status code 200', function(done) {
 
-          generalOptions.request.post({
-            url: url,
-            headers: {
-              'content-type': 'application/json'
-            },
-            json: true,
-            body: postJSON
-          }, function(error, response, body) {
-            expect(response.statusCode).toBe(200);
-            //expect(JSON.parse(body)).toBeTruthy();     //Unexpected token o in JSON at position 1  - should be fix body?
-            done();
-          });
-
+        generalOptions.request.post({
+          url: url,
+          headers: {
+            'content-type': 'application/json'
+          },
+          json: true,
+          body: postJSON
+        }, function(error, response, body) {
+          expect(response.statusCode).toBe(200);
+          //expect(JSON.parse(body)).toBeTruthy();     //Unexpected token o in JSON at position 1  - should be fix body?
+          done();
         });
 
+      });
 
-        // Making GET to verify changes via previous POST
-        it('Making GET test for ' + specificOptions.name + ' to verify POST changes', function(done) {
-          setTimeout(function() {
+
+
+      // Making GET to verify changes via previous POST
+      it('Making GET test for ' + specificOptions.name + ' to verify POST changes', function(done) {
+        setTimeout(function() {
           console.log("FLAG");
           generalOptions.request.get({
             url: url
@@ -62,41 +82,37 @@ var getPost = function(generalOptions, specificOptions) {
 
             done();
           });
-            }, 101);
+        }, 101);
+      });
+
+
+
+      // Making GET to verify language changes in CATEGORIES
+      it('Making GET test for ' + specificOptions.name + 'CATEGORIES changes', function(done) {
+        var urlCateg = generalOptions.baseUrl + '/categories/';
+        generalOptions.request.get({
+          url: urlCateg
+        }, function(error, response, body) {
+          expect(response.statusCode).toBe(200);
+          var bodyJS = JSON.parse(body);
+          expect(bodyJS).toBeTruthy();
+          var arrCateg = bodyJS.categories;
+
+          for (var i = 0; i < arrCateg.length; i++) {
+            expect(arrCateg[i].language).toBe(postJSON.systemCurrentLanguage);
+          }
+          done();
         });
+      });
 
-
-
-        // Making GET to verify changes for CATEGORIES
-        it('Making GET test for ' + specificOptions.name + 'CATEGORIES changes', function(done) {
-          var urlCateg = generalOptions.baseUrl + '/categories/';
-          generalOptions.request.get({
-            url: urlCateg
-          }, function(error, response, body) {
-            expect(response.statusCode).toBe(200);
-            expect(JSON.parse(body)).toBeTruthy();
-            var bodyJS = JSON.parse(body);
-            var arrCateg = bodyJS.categories;
-
-            for (var i = 0; i < arrCateg.length; i++) {
-              expect(arrCateg[i].language).toBe(postJSON.systemCurrentLanguage);
-            }
-            done();
-          });
-        });
 
 
 
 
     }
 
-
-
-       post(specificOptions.postJSON1); // Change language to FR-CA
-       //post(specificOptions.postJSON2); // Change language to EN-US
-
-
-
+    post(specificOptions.postJSON1); // Change language to FR-CA
+    post(specificOptions.postJSON2); // Change language to EN-US
 
 
   })

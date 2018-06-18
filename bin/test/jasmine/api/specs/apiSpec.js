@@ -22,8 +22,8 @@ var generalOptions = {
   since: since,
   ip: config.baseUrl.replace('http://', '').replace('/v1', ''),
   testParameters: [
-    config.endpoints.sanitize.whitespace,
-    config.endpoints.sanitize.specialCharacters
+    config.endpoints.sanitize.whitespace
+  //  ,config.endpoints.sanitize.specialCharacters
   ]
 };
 

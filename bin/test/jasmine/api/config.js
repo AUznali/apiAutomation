@@ -1,7 +1,7 @@
 'use strict';
 
 var config = {
-  //   env: process.env.TEST_ENV || 'mock',
+     env: process.env.TEST_ENV || 'mock',
   baseUrl: 'http://10.250.75.144:4715/v2',
   //baseUrl: 'http://10.250.75.144/v1',
   // port: process.env.PORT || '4242',

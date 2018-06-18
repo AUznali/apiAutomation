@@ -2,7 +2,6 @@
 var config = require('../config.js');
 var since = require('jasmine2-custom-message');
 var request = require('request');
-require('jasmine-promises');
 
 //Schemas
 var storeSchema = require('../../../../src/schema/stores.js');
@@ -23,8 +22,8 @@ var generalOptions = {
   since: since,
   ip: config.baseUrl.replace('http://', '').replace('/v1', ''),
   testParameters: [
-    config.endpoints.sanitize.whitespace,
-    config.endpoints.sanitize.specialCharacters
+    config.endpoints.sanitize.whitespace
+  //  ,config.endpoints.sanitize.specialCharacters
   ]
 };
 
@@ -33,7 +32,9 @@ var specificOptions = {
   stores: {
     name: '/stores/',
     route: config.endpoints.stores.route,
-    postJSON: config.endpoints.stores.postJSON,
+    postJSON1: config.endpoints.stores.postJSON1,
+    postJSON2: config.endpoints.stores.postJSON2,
+    postJsonStoreNotExist: config.endpoints.stores.postJsonStoreNotExist,
     schema: storeSchema
   },
   devices: {
@@ -73,13 +74,3 @@ module.exports = {
   generalOptions: generalOptions,
   specificOptions: specificOptions
 }
-
-
-
-
-
-
-// module.exports = specificOptions;
-// module.exports = generalOptions;
-
-//module.exports = new apiSpec();

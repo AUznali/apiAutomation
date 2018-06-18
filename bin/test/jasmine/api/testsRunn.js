@@ -20,17 +20,20 @@ var schemaValidation = require('./test/schemaValidation.js');
 // ==== RUNNING TESTS ====
 
 //REQUESTS
-// stores(generalOptions, specificOptions.stores);
+//stores(generalOptions, specificOptions.stores);
+//getById(generalOptions, specificOptions.stores);
+
 // settings(generalOptions, specificOptions.settings);
-getById(generalOptions, specificOptions.devices);
-// getById(generalOptions, specificOptions.categories);
+// getById(generalOptions, specificOptions.devices);
+//  getById(generalOptions, specificOptions.categories);
+//  getById(generalOptions, specificOptions.content);
 
 
 //SANITIZATION
-// for(var i = 0; i < generalOptions.testParameters.length; i++){
-//   var parameterForTest = generalOptions.testParameters[i];
-//   sanitization(generalOptions, specificOptions.stores, parameterForTest);
-// }
+for(var i = 0; i < generalOptions.testParameters.length; i++){
+  var parameterForTest = generalOptions.testParameters[i];
+  sanitization(generalOptions, specificOptions.stores, parameterForTest);
+}
 
 
 

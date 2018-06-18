@@ -1,8 +1,9 @@
 'use strict';
 
 var config = {
-  //   env: process.env.TEST_ENV || 'mock',
-  baseUrl: 'http://192.168.1.140/v1',
+     env: process.env.TEST_ENV || 'mock',
+  baseUrl: 'http://10.250.75.144:4715/v2',
+  //baseUrl: 'http://10.250.75.144/v1',
   // port: process.env.PORT || '4242',
   //   loginId: process.env.LOGIN_ID || 'mock@sre.sony.com',
   //   loginPass: process.env.LOGIN_PASS || 'qua46apexes',
@@ -13,21 +14,39 @@ var config = {
     //STORES
     stores: {
       route: '/stores/',
-      postJSON: {
+      postJSON1: {
         stores: [{
           isCurrent: true,
           timezone: '-8',
           number: '-2'
         }
       ]
-    }
+    },
+
+    postJSON2: {
+      stores: [{
+        isCurrent: true,
+        timezone: '-8',
+        number: '-3'
+      }
+    ]
+  },
+
+    postJsonStoreNotExist: {
+      stores: [{
+        isCurrent: true,
+        timezone: '-8',
+        number: '-79797979'
+      }
+    ]
+  }
   },
 
     //SETTINGS
     settings: {
       route: '/settings/',
       postJSON1: {
-        subWooferVolume: '0',
+        subWooferVolume: '10',
         learningVideoVolume: '10',
         systemDefaultLanguage: 'fr-ca',
         systemCurrentLanguage: 'fr-ca',
@@ -36,12 +55,12 @@ var config = {
       },
 
       postJSON2: {
-        subWooferVolume: '0',
-        learningVideoVolume: '10',
+        subWooferVolume: '9',
+        learningVideoVolume: '9',
         systemDefaultLanguage: 'en-us',
         systemCurrentLanguage: 'en-us',
-        hdrEnabled: 'true',
-        soundbarEnabled: 'true'
+        hdrEnabled: 'false',
+        soundbarEnabled: 'false'
     }
   },
 

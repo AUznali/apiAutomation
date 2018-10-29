@@ -23,7 +23,7 @@ var generalOptions = {
   ip: config.baseUrl.replace('http://', '').replace('/v1', ''),
   testParameters: [
     config.endpoints.sanitize.whitespace
-  //  ,config.endpoints.sanitize.specialCharacters
+    //  ,config.endpoints.sanitize.specialCharacters
   ]
 };
 
@@ -40,8 +40,10 @@ var specificOptions = {
   devices: {
     name: '/devices/',
     route: config.endpoints.devices.route,
-    postJSON: config.endpoints.devices.postJSON,
-    schema: devicesSchema
+    postJSON1: config.endpoints.devices.postJSON1,
+    postJSON2: config.endpoints.devices.postJSON2,
+    schema: devicesSchema,
+    discoveryTypes: config.endpoints.devices.discoveryTypes
   },
 
   settings: {
@@ -49,6 +51,7 @@ var specificOptions = {
     route: config.endpoints.settings.route,
     postJSON1: config.endpoints.settings.postJSON1,
     postJSON2: config.endpoints.settings.postJSON2,
+    postNewProperty: config.endpoints.settings.postNewProperty,
     schema: settingsSchema
   },
 

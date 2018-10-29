@@ -261,7 +261,7 @@ var settingsSchema = {
 
     availableLanguages: {
       type: 'string',
-      enum: ['en-us,es-mx,fr-ca,pt-br']
+      enum: ['en-us', 'es-mx', 'fr-ca', 'pt-br']
     },
 
     HD_PLAYER_swVersion: {
@@ -469,11 +469,11 @@ var settingsSchema = {
     },
 
     displayName: {
-      type: 'string'
+      type: ['null', 'string']
     },
 
     businessUnit: {
-      type: 'string'
+      type: ['null', 'string']
     },
 
     foundHbt: {

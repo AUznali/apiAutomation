@@ -18,6 +18,9 @@
     "chai-json-schema": "^1.5.0",
     "expect.js": "^0.3.1",
     "gulp": "^3.9.1",
+    "jasmine-xml-reporter": "^1.2.1",
+    "mysql": "^2.15.0",
+    "remote-exec": "0.0.3",
     "request": "^2.87.0",
     "request-js": "^1.0.1"
   }

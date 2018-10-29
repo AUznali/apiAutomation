@@ -4,15 +4,16 @@
 //Requests
 var stores = require('./test/stores.js');
 var settings = require('./test/settings.js');
+var devices = require('./test/devices.js');
 var getById = require('./test/getById.js');
 
 var sanitization = require('./test/sanitization.js');
 
 var schemaValidation = require('./test/schemaValidation.js');
- var apiSpec = require('./specs/apiSpec.js');
+var apiSpec = require('./specs/apiSpec.js');
 
- var generalOptions = apiSpec.generalOptions;
- var specificOptions = apiSpec.specificOptions;
+var generalOptions = apiSpec.generalOptions;
+var specificOptions = apiSpec.specificOptions;
 
 
 
@@ -20,20 +21,19 @@ var schemaValidation = require('./test/schemaValidation.js');
 // ==== RUNNING TESTS ====
 
 //REQUESTS
-//stores(generalOptions, specificOptions.stores);
-//getById(generalOptions, specificOptions.stores);
-
+// devices(generalOptions, specificOptions.devices);
+// stores(generalOptions, specificOptions.stores);
+// getById(generalOptions, specificOptions.stores);
 // settings(generalOptions, specificOptions.settings);
-// getById(generalOptions, specificOptions.devices);
-//  getById(generalOptions, specificOptions.categories);
-//  getById(generalOptions, specificOptions.content);
+getById(generalOptions, specificOptions.categories);
+// getById(generalOptions, specificOptions.content);
 
 
 //SANITIZATION
-for(var i = 0; i < generalOptions.testParameters.length; i++){
-  var parameterForTest = generalOptions.testParameters[i];
-  sanitization(generalOptions, specificOptions.stores, parameterForTest);
-}
+// for (var i = 0; i < generalOptions.testParameters.length; i++) {
+//   var parameterForTest = generalOptions.testParameters[i];
+//   sanitization(generalOptions, specificOptions.stores, parameterForTest);
+// }
 
 
 

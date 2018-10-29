@@ -5,7 +5,6 @@ var categoriesSchema = {
   title: 'Categories Schema',
   type: 'object',
   required: ['id', 'name', 'language'],
-
   properties: {
     id: {
       type: 'string',
@@ -29,7 +28,6 @@ var categoriesSchema = {
       items: [{
         type: 'object',
         properties: {
-
           id: {
             type: 'string'
           },
@@ -52,10 +50,8 @@ var categoriesSchema = {
           action: {
             type: 'null'
           }
-
         }
       }]
-
     }
   }
 };

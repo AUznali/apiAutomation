@@ -114,12 +114,12 @@ var stores = function(generalOptions, specificOptions) {
           };
 
           function storesFound() {
-            //Checking, rhat only one store have isCurrent : true
+            //Checking, that only one store have isCurrent : true
             generalOptions.since('No store found. Make sure you pass with POST existing store number').expect(foundStores).toEqual(1);
           };
 
           setTimeout(function() {
-            storesFound(), 200});
+            storesFound(), 1000});
           done();
         });
       }, 101);
@@ -147,20 +147,20 @@ var stores = function(generalOptions, specificOptions) {
 
 
 
-    // Validation Tests - Check that POST with missing properties returns 400
-    it('Validation: POST request returns status code 400 for missing properties', function(done) {
-      generalOptions.request.post({
-        url: url,
-        headers: {
-          'content-type': 'application/json'
-        },
-        json: true
-      }, function(error, response, body) {
-        expect(response.statusCode).toBe(400);
-        expect(body.message).toEqual('Post invalid.'); // for v2 - body.message,  for v1: body.error.message
-        done();
-      });
-    });
+    // // Validation Tests - Check that POST with missing properties returns 400
+    // it('Validation: POST request returns status code 400 for missing properties', function(done) {
+    //   generalOptions.request.post({
+    //     url: url,
+    //     headers: {
+    //       'content-type': 'application/json'
+    //     },
+    //     json: true
+    //   }, function(error, response, body) {
+    //     expect(response.statusCode).toBe(400);
+    //     expect(body.message).toEqual('Post invalid.'); // for v2 - body.message,  for v1: body.error.message
+    //     done();
+    //   });
+    // });
   })
 };
 
